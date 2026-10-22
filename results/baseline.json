@@ -1,0 +1,9 @@
+{
+  "model": "TF-IDF + régression logistique",
+  "accuracy": 0.9446,
+  "f1": 0.9425,
+  "train_time_s": 29.0,
+  "latency_ms": 0.55,
+  "size_mb": 14.8,
+  "hardware": "CPU"
+}
