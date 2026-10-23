@@ -1,0 +1,36 @@
+[
+  {
+    "model": "qwen2.5:7b",
+    "n_shots": 0,
+    "n_eval": 50,
+    "accuracy": 0.98,
+    "ci_low": 0.895,
+    "ci_high": 0.9965,
+    "f1": 0.9744,
+    "parse_rate": 1.0,
+    "latency_ms_median": 2122.9,
+    "latency_ms_p95": 2165.6,
+    "size_gb": 4.68,
+    "quantization": "Q4_K_M",
+    "num_ctx": 4096,
+    "hardware": "NVIDIA GeForce RTX 5070 Ti",
+    "smoke_test": true
+  },
+  {
+    "model": "qwen2.5:7b",
+    "n_shots": 8,
+    "n_eval": 50,
+    "accuracy": 0.96,
+    "ci_low": 0.8654,
+    "ci_high": 0.989,
+    "f1": 0.95,
+    "parse_rate": 1.0,
+    "latency_ms_median": 2122.4,
+    "latency_ms_p95": 2159.7,
+    "size_gb": 4.68,
+    "quantization": "Q4_K_M",
+    "num_ctx": 4096,
+    "hardware": "NVIDIA GeForce RTX 5070 Ti",
+    "smoke_test": true
+  }
+]
