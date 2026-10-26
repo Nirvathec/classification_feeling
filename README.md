@@ -1,7 +1,7 @@
 # 🎬 Analyse de sentiment : TF-IDF, CamemBERT ou LLM local ?
 
 > Comparaison de trois approches de classification de critiques de films en français, sur
-> l'accuracy **et** sur ce qu'elles coûtent : temps d'entraînement, latence, taille du modèle,
+> la précision **et** sur ce qu'elles coûtent : temps d'entraînement, latence, taille du modèle,
 > matériel nécessaire. L'objectif est de savoir à partir de quand un modèle plus lourd se justifie.
 
 <!-- 📸 Ajouter ici le graphique de comparaison généré par le notebook 03
@@ -62,7 +62,7 @@ Une comparaison n'a de valeur que si elle est équitable. Les choix suivants vis
   critiques de test. Le LLM, plus lent à interroger, est évalué sur un échantillon aléatoire fixe
   de 1 000 critiques du test ; les trois approches sont comparées entre elles **sur ce même
   échantillon**.
-- **Incertitude quantifiée.** Chaque accuracy est accompagnée d'un intervalle de confiance de
+- **Incertitude quantifiée.** Chaque score de précision est accompagnée d'un intervalle de confiance de
   Wilson à 95 %, et les écarts entre approches sont testés avec un test de McNemar exact, qui
   ne considère que les critiques sur lesquelles deux modèles divergent.
 - **Exemples du prompt tirés du jeu d'entraînement**, jamais du test, équilibrés et mélangés.
@@ -80,7 +80,7 @@ Une comparaison n'a de valeur que si elle est équitable. Les choix suivants vis
 
 ![Comparaison](assets/comparaison.png)
 
-| Approche | Accuracy (échantillon, n = 1 000) | Accuracy (test complet, n = 20 000) | Entraînement | Latence / critique | Taille |
+| Approche | précision (échantillon, n = 1 000) | précision (test complet, n = 20 000) | Entraînement | Latence / critique | Taille |
 |---|---|---|---|---|---|
 | TF-IDF + régression logistique | 93,8 % [92,1 ; 95,1] | 94,5 % [94,1 ; 94,8] | 29 s (CPU) | 0,55 ms (CPU) | 15 Mo |
 | CamemBERT fine-tuné | 96,8 % [95,5 ; 97,7] | 97,1 % [96,9 ; 97,4] | 19 min (GPU) | 10 ms (GPU) / 41 ms (CPU) | 445 Mo |
@@ -106,7 +106,7 @@ approches a raison) :
 
 Sur le test complet, l'avantage de CamemBERT sur la baseline est confirmé avec une très grande
 marge : 797 critiques que seul CamemBERT classe correctement, contre 261 pour la seule baseline
-(p < 10⁻⁶⁰), soit +2,7 points d'accuracy.
+(p < 10⁻⁶⁰), soit +2,7 points de précision.
 
 ### Ce qu'on en retient
 
@@ -117,7 +117,7 @@ marge : 797 critiques que seul CamemBERT classe correctement, contre 261 pour la
    près : 96,3 % contre 96,8 % sur l'échantillon, écart non significatif. Cet écart de
    0,5 point est du même ordre que l'incertitude de la mesure (intervalles d'environ ±1 point).
 3. **Les exemples dans le prompt n'apportent rien ici.** Zéro et huit exemples donnent la même
-   accuracy (96,3 %), avec des prédictions qui divergent de façon symétrique (10 critiques
+   précision (96,3 %), avec des prédictions qui divergent de façon symétrique (10 critiques
    dans chaque sens), mais la latence double (79 contre 164 ms), les exemples étant vraisemblablement
    retraités à chaque requête.
 4. **L'écart de coût est considérable.** La baseline répond en 0,55 ms sur un simple CPU. Le LLM
