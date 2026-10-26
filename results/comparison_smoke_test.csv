@@ -1,5 +1,5 @@
 Approche,Accuracy,IC 95 %,F1 (positif),Entraînement,Latence / critique,Taille,Coût marginal / requête
 TF-IDF + régression logistique,0.960,[0.865 ; 0.989],0.947,29 s (CPU),0.55 ms (CPU),15 Mo,0 (matériel local)
-CamemBERT fine-tuné,0.980,[0.895 ; 0.996],0.974,24 s (NVIDIA GeForce RTX 5070 Ti),9 ms (GPU) / 55 ms (CPU),445 Mo,0 (matériel local)
-LLM qwen2.5:7b (0 ex.),0.980,[0.895 ; 0.996],0.974,—,"68 ms (médiane, GPU local)",4.7 Go,0 (matériel local)
+CamemBERT fine-tuné,1.000,[0.929 ; 1.000],1.000,19 min (NVIDIA GeForce RTX 5070 Ti),10 ms (GPU) / 41 ms (CPU),445 Mo,0 (matériel local)
+LLM qwen2.5:7b (0 ex.),0.980,[0.895 ; 0.996],0.974,—,"64 ms (médiane, GPU local)",4.7 Go,0 (matériel local)
 LLM qwen2.5:7b (8 ex.),0.960,[0.865 ; 0.989],0.950,—,"70 ms (médiane, GPU local)",4.7 Go,0 (matériel local)

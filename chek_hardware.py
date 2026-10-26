@@ -74,7 +74,7 @@ else:
         "--query-gpu=name,memory.total,driver_version,compute_cap",
         "--format=csv,noheader",
     ])
-    if query is None:  # anciens pilotes : le champ compute_cap n'existe pas
+    if query is None:  
         query = run([
             "nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"
         ])
